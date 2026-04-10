@@ -1,84 +1,118 @@
 export default function TailwindCSS() {
-    return (
-        <>
-        <FlexboxGrid/>
-         <div>
-            <h1 className="border m-4">Belajar Tailwind CSS 4</h1>
-            <button className="bg-blue-950 text-amber-100
-                              px-4 py-2 mx-4 rounded-4xl
-                              shadow-lg">Click Me</button>
-        </div>
-          
-        <Spacing/>
-        <Typography/>
-        <BorderRadius/>
-        <BackgroundColors/>
-        <ShadowEffects/>
+  return (
+    <div className="min-h-screen bg-gray-50 font-sans">
+      <FlexboxGrid />
       
-        </>
-     
-        
-    )
-}
+      {/* Hero Section */}
+      <main className="max-w-5xl mx-auto px-6 py-12">
+        <header className="mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-black text-blue-950 mb-4 tracking-tight">
+            Belajar Tailwind CSS 4
+          </h1>
+          <p className="text-gray-600 mb-6">Membangun antarmuka modern dengan utilitas kelas yang efisien.</p>
+          <button className="bg-blue-950 text-orange-300 px-8 py-3 rounded-full font-bold shadow-xl hover:shadow-orange-200/50 hover:-translate-y-1 transition-all duration-300">
+            Mulai Belajar
+          </button>
+        </header>
 
-function Spacing(){
-    return (
-        <div className="bg-blue-950 shadow-lg p-6 m-4 rounded-lg">
-            <h2 className="text-white text-lg font-semibold">Card Title</h2>
-            <p className="mt-2 text-orange-300">Ini adalah contoh penggunaan padding dan margin di Tailwind.</p>
+        {/* Grid Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-8">
+            <Typography />
+            <div className="flex gap-2">
+               <BorderRadius />
+            </div>
+          </div>
+          
+          <div className="space-y-8">
+            <Spacing />
+            <BackgroundColors />
+            <ShadowEffects />
+          </div>
         </div>
-    )
+      </main>
+    </div>
+  );
 }
 
-function Typography(){
-    return (
-        <div className="m-4">
-            <h1 className="text-3xl font-extrabold text-blue-950">Tailwind Typography</h1>
-            <p className="text-blue-950 text-lg mt-2">Belajar Tailwind sangat menyenangkan dan cepat!</p>
+function FlexboxGrid() {
+  return (
+    <nav className="sticky top-0 z-50 bg-blue-950/95 backdrop-blur-sm p-4 text-orange-300 shadow-xl">
+      <div className="max-w-5xl mx-auto flex justify-between items-center">
+        <h1 className="text-2xl font-black tracking-tighter">TAILWIND<span className="text-white">LAB</span></h1>
+        <ul className="hidden md:flex space-x-8 font-medium">
+          <li className="hover:text-white transition-colors cursor-pointer">Home</li>
+          <li className="hover:text-white transition-colors cursor-pointer">About</li>
+          <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
+        </ul>
+        <button className="bg-orange-300 text-blue-950 px-5 py-1.5 rounded-full font-bold text-sm hover:bg-white transition-colors">
+          Logout
+        </button>
+      </div>
+    </nav>
+  );
+}
+
+function Spacing() {
+  return (
+    <div className="group bg-blue-950 p-8 rounded-2xl shadow-2xl border-b-4 border-orange-300 transform transition-all hover:scale-[1.02]">
+      <h2 className="text-white text-2xl font-bold mb-3">Spacing & Box</h2>
+      <p className="text-orange-200/80 leading-relaxed">
+        Mengatur ritme visual menggunakan <span className="font-mono bg-blue-900 px-1 rounded">p-6</span> dan <span className="font-mono bg-blue-900 px-1 rounded">m-4</span> untuk harmoni desain.
+      </p>
+    </div>
+  );
+}
+
+function Typography() {
+  return (
+    <div className="p-2">
+      <h2 className="text-xs uppercase tracking-[0.3em] text-orange-400 font-bold mb-2">Typography Guide</h2>
+      <h1 className="text-4xl font-extrabold text-blue-950 leading-tight">
+        Seni Mengelola <br/> <span className="text-orange-400 underline decoration-blue-950">Teks Modern</span>
+      </h1>
+      <p className="text-gray-600 mt-4 leading-relaxed italic">
+        "Desain adalah komunikasi, dan tipografi adalah suaranya."
+      </p>
+    </div>
+  );
+}
+
+function BorderRadius() {
+  return (
+    <div className="flex w-full overflow-hidden rounded-2xl shadow-lg">
+      <button className="flex-1 bg-blue-950 text-orange-300 py-4 font-bold hover:bg-orange-300 hover:text-blue-950 transition-all border-r border-blue-900">
+        ⬅ Left Side
+      </button>
+      <button className="flex-1 bg-blue-950 text-orange-300 py-4 font-bold hover:bg-orange-300 hover:text-blue-950 transition-all">
+        Right Side ➡
+      </button>
+    </div>
+  );
+}
+
+function BackgroundColors() {
+  return (
+    <div className="bg-orange-300 p-8 rounded-2xl shadow-xl relative overflow-hidden group">
+      <div className="absolute -right-8 -top-8 w-24 h-24 bg-white/20 rounded-full transition-transform group-hover:scale-150 duration-700"></div>
+      <h3 className="text-blue-950 text-2xl font-black mb-2">Vibrant Colors</h3>
+      <p className="text-blue-900 font-medium">Penggunaan warna kontras tinggi untuk menarik perhatian user.</p>
+    </div>
+  );
+}
+
+function ShadowEffects() {
+  return (
+    <div className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:-rotate-1 transition-all duration-500 cursor-pointer group">
+      <div className="flex items-center space-x-4">
+        <div className="w-12 h-12 bg-blue-950 rounded-lg flex items-center justify-center text-orange-300 font-bold group-hover:bg-orange-300 group-hover:text-blue-950 transition-colors">
+          !
         </div>
-    )
-}
-
-function BorderRadius(){
-    return (
-        <>
-          <button className="border-4 border-orange-300 text-orange-300 px-4 py-2 rounded-l-2xl bg-blue-950"> Klik Saya </button>
-           <button className="border-4 border-orange-300 text-orange-300 px-4 py-2 rounded-r-2xl bg-blue-950"> Klik Saya </button>
-        </>
-       
-    )
-}
-
-
-function BackgroundColors(){
-    return(
-        <div className= "m-4 bg-orange-300 text-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-bold">Tailwind Colors</h3>
-            <p className="mt-2">Belajar Tailwind itu seru dan fleksibel!</p>
+        <div>
+          <h3 className="text-xl font-bold text-blue-950">Hover Interaction</h3>
+          <p className="text-gray-500">Sentuh untuk melihat keajaiban.</p>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
-
-function FlexboxGrid(){
-    return (
-        <nav className="flex justify-between bg-blue-950 p-4 text-orange-300">
-            <h1 className="text-lg font-bold">MyWebsite</h1>
-            <ul className="flex space-x-4">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                 <li><a href="#">Logout</a></li>
-            </ul>
-        </nav>
-    )
-}
-
-function ShadowEffects(){
-    return (
-        <div className="bg-white shadow-lg p-6 rounded-lg hover:rotate-2 transition">
-            <h3 className="text-xl font-semibold">Hover me!</h3>
-            <p className="text-gray-600 mt-2">Lihat efek bayangan saat hover.</p>
-        </div>
-    )
-}
-
