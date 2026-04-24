@@ -1,30 +1,48 @@
-export default function Service() {
-    const services = [
-        { title: "Food Delivery", desc: "Fast and reliable delivery for your meals.", icon: "🛵", active: true },
-        { title: "Table Reservation", desc: "Book your favorite table in advance.", icon: "🍽️", active: true },
-        { title: "Catering Service", desc: "Special menu for your big events.", icon: "🎉", active: false },
-        { title: "Daily Promo", desc: "Manage your restaurant discounts.", icon: "🏷️", active: true },
-    ];
+import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
 
+export default function Dashboard() {
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Our Services</h1>
-            <p className="text-gray-400 mb-8">Manage and monitor all active restaurant services.</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {services.map((svc, index) => (
-                    <div key={index} className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                        <div className="text-4xl mb-4">{svc.icon}</div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2">{svc.title}</h3>
-                        <p className="text-sm text-gray-500 mb-6">{svc.desc}</p>
-                        <div className="flex items-center justify-between">
-                            <span className={`text-[10px] font-bold px-3 py-1 rounded-full ${svc.active ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
-                                {svc.active ? 'ACTIVE' : 'INACTIVE'}
-                            </span>
-                            <button className="text-sm font-semibold text-blue-500 hover:underline">Edit</button>
-                        </div>
+        <div id="dashboard-container">
+            <div id="dashboard-grid">
+                <div id="dashboard-orders">
+                    <div id="orders-icon">
+                        <FaShoppingCart />
                     </div>
-                ))}
+                    <div id="orders-info">
+                        <span id="orders-count">75</span>
+                        <span id="orders-text">Total Orders</span>
+                    </div>
+                </div>
+
+                <div id="dashboard-delivered">
+                    <div id="delivered-icon">
+                        <FaTruck />
+                    </div>
+                    <div id="delivered-info">
+                        <span id="delivered-count">175</span>
+                        <span id="delivered-text">Total Delivered</span>
+                    </div>
+                </div>
+
+                <div id="dashboard-canceled">
+                    <div id="canceled-icon">
+                        <FaBan />
+                    </div>
+                    <div id="canceled-info">
+                        <span id="canceled-count">40</span>
+                        <span id="canceled-text">Total Canceled</span>
+                    </div>
+                </div>
+
+                <div id="dashboard-revenue">
+                    <div id="revenue-icon">
+                        <FaDollarSign />
+                    </div>
+                    <div id="revenue-info">
+                        <span id="revenue-amount">Rp.128</span>
+                        <span id="revenue-text">Total Revenue</span>
+                    </div>
+                </div>
             </div>
         </div>
     );
