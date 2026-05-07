@@ -1,34 +1,36 @@
 export default function HelloWorld(){
-     const propsUserCard = {
+    const propsUserCard = {
         nama: "Goku",
         nim: "999999",
         tanggal: "2025-01-01"
     }
-
     return (
         <div>
             <h1>Hello World</h1>
             <p>Selamat Belajar ReactJs</p>
             <GreetingBinjai/>
             <QuoteText/>
-             <UserCard 
+            <UserCard/>
+            <UserCard 
 	            nama="Fikri" 
 	            nim="169412"
 	            tanggal={new Date().toLocaleDateString()}
 	          />
+              <UserCard 
+	            nama="Johan" 
+	            nim="2457301094"
+	            tanggal={new Date().toLocaleDateString()}
+	          />
               <UserCard {...propsUserCard}/>
-
-              <img src="img/rumah.jpg" alt="logo"/>
+              <img src="img/download.jpg" alt="logo" width= "100px"/>
         </div>
     )
 }
-
-function GreetingBinjai (){
+function GreetingBinjai(){
     return (
-        <small> Salam dari Binjai </small>
+        <samall>Salam dari binjai</samall>
     )
 }
-
 function QuoteText() {
     const text = "Mulutmu Harimaumu";
     const text2 = "Aku ingin jadi macan";
@@ -40,7 +42,6 @@ function QuoteText() {
         </div>
     )
 }
-
 function UserCard(props){
     return (
         <div>

@@ -9,7 +9,9 @@ export default function HitungGajiForm() {
     return (
         <div className="flex flex-col items-center justify-center m-5 p-5 bg-gray-100">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-                <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">Hitung Gaji Bersih</h2>
+                <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">
+                    Hitung Gaji Bersih
+                </h2>
 
                 <div className="mb-4">
                     <label className="block text-gray-700 font-medium mb-1">
@@ -22,9 +24,10 @@ export default function HitungGajiForm() {
                         onChange={(e) => setGaji(e.target.value)}
                     />
                 </div>
+
                 <div className="mb-4">
                     <label className="block text-gray-700 font-medium mb-1">
-                        Pajak: <b class="text-red-500">11%</b>
+                        Pajak: <b className="text-red-500">11%</b>
                     </label>
                 </div>
 
@@ -41,7 +44,7 @@ export default function HitungGajiForm() {
                         </p>
                     </div>
                 )}
-               
+
             </div>
         </div>
     );

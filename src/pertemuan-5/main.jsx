@@ -6,23 +6,29 @@ import Sidebar from "./layouts/Sidebar";
 import Header from "./layouts/Header";
 import Dashboard from "./pages/Dashboard";
 import Details from "./pages/Details";
-import Service from "./pages/Service"; // Import file baru
+import Service from "./pages/Service";
 
 function App() {
-    // Gunakan state untuk mengontrol halaman mana yang aktif
+    // State untuk Navigasi Halaman
     const [activePage, setActivePage] = useState("Dashboard");
+    
+    // State untuk Fitur Pencarian (Wajib ada di sini agar bisa diakses Header & Dashboard)
+    const [searchTerm, setSearchTerm] = useState("");
 
     return (
-        <div className="flex min-h-screen bg-gray-100 font-sans">
-            {/* Kirim props ke Sidebar agar bisa mengubah state activePage */}
+        <div className="flex min-h-screen bg-[#FDFDFD] font-sans overflow-hidden">
+            {/* Sidebar untuk Navigasi */}
             <Sidebar activePage={activePage} setActivePage={setActivePage} />
 
-            <div className="flex-1 flex flex-col">
-                <Header />
+            <div className="flex-1 flex flex-col relative h-screen overflow-hidden">
+                {/* Header menerima searchTerm untuk mengisi data, dan setSearchTerm untuk mengubahnya */}
+                <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                 
-                {/* Render Kondisional berdasarkan activePage */}
+                {/* Area Konten Utama */}
                 <div className="flex-1 overflow-y-auto">
-                    {activePage === "Dashboard" && <Dashboard />}
+                    {/* Halaman Dashboard menerima searchTerm untuk memfilter tabelnya */}
+                    {activePage === "Dashboard" && <Dashboard searchTerm={searchTerm} />}
+                    
                     {activePage === "Details" && <Details />}
                     {activePage === "Services" && <Service />}
                 </div>
