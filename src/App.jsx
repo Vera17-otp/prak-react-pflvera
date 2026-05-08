@@ -1,43 +1,55 @@
-import { useState } from "react";
+import React, { Suspense, useState, lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./assets/tailwind.css";
+import Loading from "./components/Loading";
 
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
-import NotFound from "./components/NotFound";
+// Menggunakan React.lazy untuk optimasi performa
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Orders = lazy(() => import("./pages/Orders"));
+const Customers = lazy(() => import("./pages/Customers"));
+const NotFound = lazy(() => import("./components/NotFound"));
+const MainLayouts = lazy(() => import("./layouts/MainLayouts"));
+const Login = lazy(() => import("./pages/Auth/Login"));
+const Register = lazy(() => import("./pages/Auth/Register"));
+const Forgot = lazy(() => import("./pages/Auth/Forgot"));
+const AuthLayout = lazy(() => import("./layouts/AuthLayouts"));
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const location = useLocation();
 
-    // cek apakah route valid
-    const validRoutes = ["/", "/orders", "/customers"];
+    // Cek apakah route valid
+    const validRoutes = ["/", "/orders", "/customers", "/login", "/register", "/forgot"];
     const isErrorPage = !validRoutes.includes(location.pathname);
 
-    // 👉 kalau error → tampil full screen TANPA sidebar
+    // Jika route tidak ditemukan, tampilkan NotFound
     if (isErrorPage) {
-        return <NotFound />;
+        return (
+            <Suspense fallback={<Loading />}>
+                <NotFound />
+            </Suspense>
+        );
     }
 
+    // Return utama untuk Routes aplikasi
     return (
-        <div className="flex min-h-screen bg-[#FDFDFD] font-sans">
-            <Sidebar />
+        <Suspense fallback={<Loading />}>
+            <Routes>
+                {/* Grup Route dengan Layout Utama (Pakai Sidebar/Header) */}
+                <Route element={<MainLayouts />}>
+                    <Route path="/" element={<Dashboard searchTerm={searchTerm} />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/customers" element={<Customers />} />
+                </Route>
 
-            <div className="flex-1 flex flex-col">
-                <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
-                <div className="flex-1 p-4 overflow-y-auto">
-                    <Routes>
-                        <Route path="/" element={<Dashboard searchTerm={searchTerm} />} />
-                        <Route path="/orders" element={<Orders />} />
-                        <Route path="/customers" element={<Customers />} />
-                    </Routes>
-                </div>
-            </div>
-        </div>
+                {/* Grup Route untuk Auth (Login/Register) */}
+                <Route element={<AuthLayout />}>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/forgot" element={<Forgot />} />
+                </Route>
+            </Routes>
+        </Suspense>
     );
 }
 
