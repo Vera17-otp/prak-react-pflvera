@@ -7,6 +7,7 @@ import Header from "./layouts/Header";
 import Dashboard from "./pages/Dashboard";
 import Details from "./pages/Details";
 import Service from "./pages/Service";
+import Product from "./pages/Procuct";
 
 function App() {
     // State untuk Navigasi Halaman

@@ -9,6 +9,7 @@ export default function Sidebar({ activePage, setActivePage }) {
         { id: "Dashboard", name: "Dashboard", icon: <AiFillAppstore size={22} /> },
         { id: "Details", name: "Details", icon: <TbListDetails size={22} /> },
         { id: "Services", name: "Services", icon: <AiFillCustomerService size={22} /> },
+        { id: "Product", name: "Product", icon: <AiFillAppstore size={22} /> },
     ];
 
     return (

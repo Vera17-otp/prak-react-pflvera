@@ -9,9 +9,11 @@ export default function Sidebar() {
     { id: "dashboard", name: "Dashboard", icon: <AiFillAppstore size={22} />, to: "/" },
     { id: "orders",    name: "Orders",    icon: <TbListDetails size={22} />, to: "/orders" },
     { id: "customers", name: "Customers", icon: <AiFillCustomerService size={22} />, to: "/customers" },
+    { id: "product",   name: "Product",   icon: <AiFillAppstore size={22} />, to: "/product" },
+];
 
    
-];
+
 
     // ✅ menuClass disesuaikan dengan class baru
     const menuClass = ({ isActive }) =>

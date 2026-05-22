@@ -14,22 +14,25 @@ const Register = lazy(() => import("./pages/Auth/Register"));
 const Forgot = lazy(() => import("./pages/Auth/Forgot"));
 const AuthLayout = lazy(() => import("./layouts/AuthLayouts"));
 
+const Product = lazy(() => import("./pages/Product"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail.jsx"));
+
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const location = useLocation();
 
     // Cek apakah route valid
-    const validRoutes = ["/", "/orders", "/customers", "/login", "/register", "/forgot"];
-    const isErrorPage = !validRoutes.includes(location.pathname);
+    // const validRoutes = ["/", "/orders", "/customers", "/login", "/register", "/forgot", "/product","/products/:id"];
+    // const isErrorPage = !validRoutes.includes(location.pathname);
 
     // Jika route tidak ditemukan, tampilkan NotFound
-    if (isErrorPage) {
-        return (
-            <Suspense fallback={<Loading />}>
-                <NotFound />
-            </Suspense>
-        );
-    }
+    // if (isErrorPage) {
+    //     return (
+    //         <Suspense fallback={<Loading />}>
+    //             <NotFound />
+    //         </Suspense>
+    //     );
+    // }
 
     // Return utama untuk Routes aplikasi
     return (
@@ -40,6 +43,8 @@ function App() {
                     <Route path="/" element={<Dashboard searchTerm={searchTerm} />} />
                     <Route path="/orders" element={<Orders />} />
                     <Route path="/customers" element={<Customers />} />
+                    <Route path="/product" element={<Product />} />
+                    <Route path="/products/:id" element={<ProductDetail />} /> 
                 </Route>
 
                 {/* Grup Route untuk Auth (Login/Register) */}
