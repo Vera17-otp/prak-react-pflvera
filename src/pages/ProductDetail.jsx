@@ -7,4 +7,7 @@ export default function ProductDetail() {
       <p>Ini Halaman Detail Produk</p>
     </div>
   );
+
+
+  
 }
