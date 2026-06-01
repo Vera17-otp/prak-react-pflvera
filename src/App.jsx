@@ -16,6 +16,7 @@ const AuthLayout = lazy(() => import("./layouts/AuthLayouts"));
 
 const Product = lazy(() => import("./pages/Product"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail.jsx"));
+const Components = lazy(() => import("./pages/Components"));
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/" element={<Dashboard searchTerm={searchTerm} />} />
                     <Route path="/orders" element={<Orders />} />
                     <Route path="/customers" element={<Customers />} />
+                    <Route path="/components" element={<Components />} />
                     <Route path="/product" element={<Product />} />
                     <Route path="/products/:id" element={<ProductDetail />} /> 
                 </Route>
