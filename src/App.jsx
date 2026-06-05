@@ -2,6 +2,7 @@ import React, { Suspense, useState, lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./assets/tailwind.css";
 import Loading from "./components/Loading";
+// import FiturXyz from "./pages/FiturXyz.jsx";
 
 // Menggunakan React.lazy untuk optimasi performa
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -17,6 +18,7 @@ const AuthLayout = lazy(() => import("./layouts/AuthLayouts"));
 const Product = lazy(() => import("./pages/Product"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail.jsx"));
 const Components = lazy(() => import("./pages/Components"));
+const FiturXyz = lazy(() => import("./pages/FiturXyz"));
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -47,6 +49,7 @@ function App() {
                     <Route path="/components" element={<Components />} />
                     <Route path="/product" element={<Product />} />
                     <Route path="/products/:id" element={<ProductDetail />} /> 
+                     <Route path="/fiturxyz" element={<FiturXyz />} /> 
                 </Route>
 
                 {/* Grup Route untuk Auth (Login/Register) */}
