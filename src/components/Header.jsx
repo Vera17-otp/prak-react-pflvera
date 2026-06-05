@@ -36,16 +36,7 @@ export default function Header({ searchTerm, setSearchTerm }) {
                    
                    
 
-                    <div className="flex items-center space-x-4 border-l pl-4 border-gray-300">
-                        <span className="hidden md:inline text-sm">
-                            Hai, <span className="font-bold">Vera Zakia</span>
-                        </span>
-                        <img
-                            src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
-                            className="w-10 h-10 rounded-full border-2 border-white shadow-sm"
-                            alt="avatar"
-                        />
-                    </div>
+                    
                 </div>
             </div>
 
