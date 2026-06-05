@@ -33,17 +33,12 @@ export default function Header({ searchTerm, setSearchTerm }) {
                         </span>
                     </div>
 
-                    <div className="p-3 bg-blue-50 rounded-2xl">
-                        <FcAreaChart />
-                    </div>
-
-                    <div className="p-3 bg-red-50 rounded-2xl text-red-500">
-                        <SlSettings />
-                    </div>
+                   
+                   
 
                     <div className="flex items-center space-x-4 border-l pl-4 border-gray-300">
                         <span className="hidden md:inline text-sm">
-                            Hello, <span className="font-bold">Fajar Farhan</span>
+                            Hello, <span className="font-bold">Vera Zakia</span>
                         </span>
                         <img
                             src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
