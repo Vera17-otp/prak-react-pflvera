@@ -9,6 +9,10 @@ const headers = {
     "Content-Type": "application/json",
 }
 
+
+
+
+
 export const notesAPI = {
     async fetchNotes() {
         const response = await axios.get(API_URL, { headers })
