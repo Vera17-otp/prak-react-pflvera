@@ -19,6 +19,7 @@ const Product = lazy(() => import("./pages/Product"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail.jsx"));
 const Components = lazy(() => import("./pages/Components"));
 const FiturXyz = lazy(() => import("./pages/FiturXyz"));
+const Note = lazy(() => import("./pages/Note"));
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -48,8 +49,9 @@ function App() {
                     <Route path="/customers" element={<Customers />} />
                     <Route path="/components" element={<Components />} />
                     <Route path="/product" element={<Product />} />
-                    <Route path="/products/:id" element={<ProductDetail />} /> 
-                     <Route path="/fiturxyz" element={<FiturXyz />} /> 
+                    <Route path="/products/:id" element={<ProductDetail />} />
+                    <Route path="/fiturxyz" element={<FiturXyz />} />
+                    <Route path="/notes" element={<Note />} />
                 </Route>
 
                 {/* Grup Route untuk Auth (Login/Register) */}

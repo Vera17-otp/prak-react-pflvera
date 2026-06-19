@@ -12,6 +12,7 @@ export default function Sidebar() {
     { id: "products",   name: "Products",   icon: <BsBoxSeam size={20} />,            to: "/products",   end: false },
     { id: "components", name: "Components", icon: <BsGrid1X2Fill size={20} />,        to: "/components", end: false },
     { id: "fiturxyz", name: "FiturXyz", icon: <BsGrid1X2Fill size={20} />,        to: "/fiturxyz", end: false },
+     { id: "notes", name: "Note", icon: <BsGrid1X2Fill size={20} />,        to: "/notes", end: false },
 ];
 
     // ✅ menuClass disesuaikan dengan class baru
